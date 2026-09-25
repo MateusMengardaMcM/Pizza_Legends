@@ -1,6 +1,6 @@
 class Overworld {
     constructor(config) {
-        this.element =config.element;
+        this.element = config.element;
         this.canvas = this.element.querySelector(".game-canvas");
         this.ctx = this.canvas.getContext("2d");
     }
@@ -28,8 +28,6 @@ class Overworld {
         }
         shadow.src="/images/characters/shadow.png";
 
-        const x = 5;
-        const y = 6;
         const hero = new Image();
         hero.onload = ()=>{
             this.ctx.drawImage(
