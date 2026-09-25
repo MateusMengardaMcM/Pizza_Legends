@@ -3,8 +3,16 @@ class Overworld {
         this.element = config.element;
         this.canvas = this.element.querySelector(".game-canvas");
         this.ctx = this.canvas.getContext("2d");
+        this.map = null;
     }
-    init(){
+
+    startGameLoop() {
+        const step = ()=>{
+
+        }
+    }
+
+    init() {
         console.log("Hello from the Overworld", this);
         const image = new Image();
         image.onload = ()=>{
