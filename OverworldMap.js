@@ -24,6 +24,7 @@ window.OverworldMaps = {
         upperSrc: "/images/maps/DemoUpper.png",
         gameObjects: {
             hero: new GameObject({
+                isPlayerControlled: true,
                 x:5,
                 y:6
             }),
