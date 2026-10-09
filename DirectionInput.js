@@ -10,10 +10,10 @@ class DirectionInput {
             "ArrowLeft":"left",
             "KeyA":"left",
             "ArrowRight":"right",
-            "KeyD":"right",
+            "KeyD":"right"
         }
     }
-    get directions() {
+    get direction() {
         return this.heldDirections[0]
     }
 
