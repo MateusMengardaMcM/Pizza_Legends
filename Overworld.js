@@ -7,7 +7,7 @@ class Overworld {
     }
 
     startGameLoop() {
-        const step = ()=>{
+        const step = () => {
             this.ctx.clearRect(0 , 0 , this.canvas.width , this.canvas.height);
 
             const cameraPerson = this.map.gameObjects.hero;
@@ -16,7 +16,6 @@ class Overworld {
                 object.update({
                     arrow: this.directionInput.direction,
                     map:this.map,
-
                 })
             })
 
@@ -46,12 +45,12 @@ class Overworld {
 
         this.startGameLoop();
         
-        this.map.startCutscene([
-            {who: "hero" , type: "walk" , direction: "down"},
-            {who: "hero" , type: "walk" , direction: "down"},
-            {who: "npcA" , type: "walk" , direction: "left"},
-            {who: "npcA" , type: "walk" , direction: "left"},
-            {who: "npcA" , type: "stand" , direction: "up", time:800},
-        ])
+        /*this.map.startCutscene([
+            {who: "hero", type: "walk", direction: "down"},
+            {who: "hero", type: "walk", direction: "down"},
+            {who: "npcA", type: "walk", direction: "left"},
+            {who: "npcA", type: "walk", direction: "left"},
+            {who: "npcA", type: "stand", direction: "up", time:800},
+        ])*/
     }
 }

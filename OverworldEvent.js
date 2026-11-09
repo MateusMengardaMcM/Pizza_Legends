@@ -15,11 +15,11 @@ class OverworldEvent {
         })
         const completeHandler = e => {
             if (e.detail.whoId === this.event.who) {
-                document.removeEventListener("PersonStandComplete" , completeHandler);
+                document.removeEventListener("PersonStandComplete", completeHandler);
                 resolve();
             }
         }
-        document.addEventListener("PersonStandComplete" , completeHandler);
+        document.addEventListener("PersonStandComplete", completeHandler);
     }
 
     walk(resolve) {
@@ -33,15 +33,31 @@ class OverworldEvent {
         })
         const completeHandler = e => {
             if (e.detail.whoId === this.event.who) {
-                document.removeEventListener("PersonWalkingComplete" , completeHandler);
+                document.removeEventListener("PersonWalkingComplete", completeHandler);
                 resolve();
             }
         }
-        document.addEventListener("PersonWalkingComplete" , completeHandler);
+        document.addEventListener("PersonWalkingComplete", completeHandler);
+    }
+
+    textMessage(resolve) {
+        if (this.event.faceHero) {
+            const obj = this.map.gameObjects[this.event.faceHero];
+            obj.direction.utils.oppositeDirection(
+                this.map.gameObjects["hero"].direction
+            );
+        }
+
+        const message = new TextMessage({
+            text: this.event.text,
+            onComplete: () => resolve()
+        });
+
+        message.init(document.querySelector(".game-container"));
     }
 
     init() {
-        return new Promise(resolve =>{
+        return new Promise(resolve => {
             this[this.event.type](resolve)
         })
     }
