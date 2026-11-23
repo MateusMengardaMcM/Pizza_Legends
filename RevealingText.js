@@ -19,4 +19,26 @@ class RevealingText {
             this.isDone = true;
         }
     }
+
+    warpToDone() {
+        clearTimeout(this.timeout);
+        this.isDone = true;
+        this.element.querySelectorAll("span").forEach(s => {
+            s.classList.add("revealed");
+        });
+    }
+
+    init() {
+        let characters = [];
+        this.text.split("").forEach(character => {
+            let span = document.createElement("span");
+            span.textContent = character;
+            this.element.appendChild(span);
+            characters.push({
+                span,
+                delayAfter: character === " " ? 0: this.speed
+            })
+        });
+        this.revealOneCharacter(characters);
+    }
 }
